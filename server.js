@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: ['http://localhost:3000','https://mern-task-app.onrender.com']
+  origin: ['http://localhost:3000','https://mern-task-app-c3xm.onrender.com']
 }));
 
 app.get('/', (req, res) => {

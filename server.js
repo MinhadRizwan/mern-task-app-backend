@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: ['http://localhost:3000', 'https://mern-stack-app.onrender.com']
+  origin: ['https://mern-stack-app.onrender.com']
 }));
 
 app.get('/', (req, res) => {

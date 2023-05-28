@@ -10,7 +10,7 @@ import Todo from "./models/Todo.js";
 
 const secret = 'secret123';
 
-await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/Task-Manager?retryWrites=true&w=majority', {useNewUrlParser:true, useUnifiedTopology:true});
+await mongoose.connect(process.env.MONGO_URI, {useNewUrlParser:true, useUnifiedTopology:true});
 const db = mongoose.connection;
 db.on('error', console.log);
 

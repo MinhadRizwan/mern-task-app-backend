@@ -10,13 +10,13 @@ import Todo from "./models/Todo.js";
 
 const app = express();
 const secret = 'secret123';
-const PORT = process.env.BASE_URL;
+// const PORT = process.env.BASE_URL;
 
 await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/Task-Manager?retryWrites=true&w=majority', {useNewUrlParser: true})
 // mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
-  app.listen(PORT,()=>{
-    console.log(`Server running on port ${PORT}`)
+  app.listen(BASE_URL,()=>{
+    console.log(`Server running on port ${BASE_URL}`)
   })
 })
 const db = mongoose.connection;
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: ['http://localhost:3000','https://mern-task-app-c3xm.onrender.com']
+  origin: ['https://mern-task-app-c3xm.onrender.com']
 }));
 
 app.get('/', (req, res) => {
@@ -123,4 +123,4 @@ app.post('/todos', (req,res) => {
   });
 });
 
-app.listen(4000);
+app.listen(BASE_URL);

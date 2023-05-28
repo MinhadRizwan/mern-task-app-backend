@@ -8,6 +8,7 @@ import cors from 'cors';
 import jwt from 'jsonwebtoken';
 import Todo from "./models/Todo.js";
 
+const app = express();
 const secret = 'secret123';
 const PORT = process.env.PORT || 4000;
 await mongoose.connect(process.env.MONGO_URI)
@@ -19,7 +20,7 @@ await mongoose.connect(process.env.MONGO_URI)
 // const db = mongoose.connection;
 // db.on('error', console.log);
 
-const app = express();
+
 app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({

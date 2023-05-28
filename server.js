@@ -12,7 +12,7 @@ const app = express();
 const secret = 'secret123';
 const PORT = process.env.PORT;
 
-await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true})
+await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/Task-Manager?retryWrites=true&w=majority', {useNewUrlParser: true})
 // mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
   app.listen(PORT,()=>{
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: ['http://localhost:4000','https://mern-task-app-c3xm.onrender.com']
+  origin: ['http://localhost:3000','https://mern-task-app-c3xm.onrender.com']
 }));
 
 app.get('/', (req, res) => {

@@ -10,7 +10,7 @@ import Todo from "./models/Todo.js";
 
 const app = express();
 const secret = 'secret123';
-const PORT = process.env.PORT;
+const PORT = process.env.BASE_URL;
 
 await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/Task-Manager?retryWrites=true&w=majority', {useNewUrlParser: true})
 // mongoose.connect(process.env.MONGO_URI)

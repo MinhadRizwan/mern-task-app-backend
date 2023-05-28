@@ -11,6 +11,7 @@ import Todo from "./models/Todo.js";
 const app = express();
 const secret = 'secret123';
 const PORT = process.env.PORT || 4000;
+
 await mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
   app.listen(PORT,()=>{
@@ -25,7 +26,7 @@ app.use(cookieParser());
 app.use(bodyParser.json({extended:true}));
 app.use(cors({
   credentials:true,
-  origin: ['https://mern-stack-app.onrender.com']
+  origin: ['http://localhost:3000','https://mern-task-app.onrender.com']
 }));
 
 app.get('/', (req, res) => {

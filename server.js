@@ -9,7 +9,7 @@ import jwt from 'jsonwebtoken';
 import Todo from "./models/Todo.js";
 
 const app = express();
-// const secret = 'secret123';
+const secret = 'secret123';
 const PORT = process.env.PORT || 4000;
 
 await mongoose.connect(process.env.MONGO_URI)
@@ -91,7 +91,7 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/todos', (req,res) => {
-  const payload = jwt.verify(req.cookies.token);
+  const payload = jwt.verify(req.cookies.token, secret);
   Todo.where({user:new mongoose.Types.ObjectId(payload.id)})
     .find((err,todos) => {
       res.json(todos);
@@ -99,7 +99,7 @@ app.get('/todos', (req,res) => {
 });
 
 app.put('/todos', (req, res) => {
-  const payload = jwt.verify(req.cookies.token);
+  const payload = jwt.verify(req.cookies.token, secret);
   const todo = new Todo({
     text:req.body.text,
     done:false,
@@ -111,7 +111,7 @@ app.put('/todos', (req, res) => {
 });
 
 app.post('/todos', (req,res) => {
-  const payload = jwt.verify(req.cookies.token);
+  const payload = jwt.verify(req.cookies.token, secret);
   Todo.updateOne({
     _id:new mongoose.Types.ObjectId(req.body.id),
     user:new mongoose.Types.ObjectId(payload.id)

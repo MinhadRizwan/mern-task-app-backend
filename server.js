@@ -12,7 +12,7 @@ const app = express();
 const secret = 'secret123';
 const PORT = process.env.PORT || 4000;
 
-await mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
   app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)

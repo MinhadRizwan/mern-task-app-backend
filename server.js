@@ -19,8 +19,8 @@ await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mon
     console.log(`Server running on port ${PORT}`)
   })
 })
-// const db = mongoose.connection;
-// db.on('error', console.log);
+const db = mongoose.connection;
+db.on('error', console.log);
 
 
 app.use(cookieParser());

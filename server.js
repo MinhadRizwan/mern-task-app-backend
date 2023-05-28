@@ -10,9 +10,10 @@ import Todo from "./models/Todo.js";
 
 const app = express();
 const secret = 'secret123';
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 
-mongoose.connect(process.env.MONGO_URI)
+await mongoose.connect('mongodb+srv://minhad:secret123@minhadcluster.f6lviky.mongodb.net/Task-Manager?retryWrites=true&w=majority', {useNewUrlParser: true})
+// mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
   app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
